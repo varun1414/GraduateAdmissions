@@ -1,30 +1,14 @@
 clear; clc;
 X=csvread("Admission_Predict.csv");
-y=X(:,9);
-x1=X(:,2);
-x2=X(:,3);
-x3=X(:,4);
-%m=mean(X);
-%s=std(X);
-m1=m(2);
-s1=s(2);
-x1=(x1-m1)./s1;
-m2=m(3);
-s2=s(3);
-x2=(x2-m2)./s2;
-m3=m(4);
-s3=s(4);
-x3=(x3-m3)./s3;
-plot(x1,y,'+');
-hold on;
-plot(x2,y,'o');
-hold on;
-plot(x3,y,'o');
+m=mean(X);
+s=std(X);
+
 y=X(:,9);
 for i=1:8
 xm=m(i);
 xs=s(i);
-x(0,i)=X(:,i);
-plot(x(0,i),y,'+');
+x(i,:)=X(:,i)';
+x(i,:)=(x(i,:)-xm)./xs;
+plot(x(i,:),y,'+');
 hold on;
 end;
