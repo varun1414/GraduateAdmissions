@@ -1,68 +1,30 @@
-
-clear ; close all; 
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
-
-fprintf('Plotting Data ...\n')
-data = load('ex1data1.txt');
-X = data(:, 1); y = data(:, 2);  %plotting
-m = length(y); % number of training examples
-
-% Plot Data
-
-plotData(X, y);
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
-
-X = [ones(m, 1), data(:,1)]; 
-theta = zeros(2, 1); 
-
-% Some gradient descent settings
-iterations = 1500;
-alpha = 0.01;
-
-fprintf('\nTesting the cost function ...\n')
-% compute and display initial cost
-J = computeCost(X, y, theta);
-fprintf('With theta = [0 ; 0]\nCost computed = %f\n', J);
-fprintf('Expected cost value (approx) 32.07\n');
-
-% further testing of the cost function
-J = computeCost(X, y, [-1 ; 2]);
-fprintf('\nWith theta = [-1 ; 2]\nCost computed = %f\n', J);
-fprintf('Expected cost value (approx) 54.24\n');
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
-fprintf('\nRunning Gradient Descent ...\n')
-% run gradient descent
-theta = gradientDescent(X, y, theta, alpha, iterations);
-
-% print theta to screen
-fprintf('Theta found by gradient descent:\n');
-fprintf('%f\n', theta);
-fprintf('Expected theta values (approx)\n');
-fprintf(' -3.6303\n  1.1664\n\n');
-
-% Plot the linear fit
+clear; clc;
+X=csvread("Admission_Predict.csv");
+y=X(:,9);
+x1=X(:,2);
+x2=X(:,3);
+x3=X(:,4);
+%m=mean(X);
+%s=std(X);
+m1=m(2);
+s1=s(2);
+x1=(x1-m1)./s1;
+m2=m(3);
+s2=s(3);
+x2=(x2-m2)./s2;
+m3=m(4);
+s3=s(4);
+x3=(x3-m3)./s3;
+plot(x1,y,'+');
 hold on;
-plot(X(:,2), X*theta, '-')
-legend('Training data', 'Linear regression')
-hold off % don't overlay any more plots on this figure
-
-% Predict values for population sizes of 35,000 and 70,000
-predict1 = [1, 3.5] *theta;
-fprintf('For population = 35,000, we predict a profit of %f\n',...
-    predict1*10000);
-predict2 = [1, 7] * theta;
-fprintf('For population = 70,000, we predict a profit of %f\n',...
-    predict2*10000);
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
+plot(x2,y,'o');
+hold on;
+plot(x3,y,'o');
+y=X(:,9);
+for i=1:8
+xm=m(i);
+xs=s(i);
+x(0,i)=X(:,i);
+plot(x(0,i),y,'+');
+hold on;
+end;
