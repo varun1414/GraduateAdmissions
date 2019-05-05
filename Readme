@@ -1,0 +1,8 @@
+A Prototype Machine Learning model to predict the chance of admission
+
+
+Data set obtained from  https://www.kaggle.com/mohansacharya/graduate-admissions.
+
+
+Objective:
+To predict the chance of admission given details like GRE score, TOEFL Score,University Rating,SOP,LOR , CGPA, Research.
