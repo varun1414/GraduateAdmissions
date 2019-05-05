@@ -1,21 +1,43 @@
 clear; clc;
 X=csvread("Admission_Predict.csv");
-m=mean(X);
-s=std(X);
 
+X=X(2:401,:);
 y=X(:,9);
-for i=2:8
+
+
+m1=mean(y);
+s1=std(y);
+y=(y-m1)./s1;
+for k=1:7
+	x(:,k)=X(:,k+1).^k;
+	end;
+	
+	
+m=mean(x);
+s=std(x);
+
+for i=1:7
 xm=m(i);
 xs=s(i);
-x(i,:)=X(:,i)';
-x(i,:)=(x(i,:)-xm)./xs;
-plot(x(i,:),y,'+');
-hold on;
-pause;
+
+x(:,i)=(x(:,i)-xm)./xs;
+
+ fprintf("\n\nPlotting Features\n\n");
+ scatter([2:401],x(:,i),'+');
+ 
+
+ hold on;
+ 
 
 end;
+plot([2:401],y);
+
 
 %Predicting Parameters
-iterations=10;
-alpha=0.00000001; theta=[1;1;1;1;1;1;1];
-theta=GradientDescent(alpha,iterations,X,y,theta);
+iterations=1500;
+alpha=0.3; theta=[0;0;0;0;0;0;0];
+theta=GradientDescent(alpha,iterations,x,y,theta)
+
+
+
+
