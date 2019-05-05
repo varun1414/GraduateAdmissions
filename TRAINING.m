@@ -37,7 +37,8 @@ plot([2:401],y);
 iterations=1500;
 alpha=0.3; theta=[0;0;0;0;0;0;0];
 theta=GradientDescent(alpha,iterations,x,y,theta)
-
+fprintf("\n\nTesting ");
+l=testing(m,s,s1,m1,theta);
 
 
 
