@@ -23,14 +23,14 @@ xs=s(i);
 x(:,i)=(x(:,i)-xm)./xs;
 
  %fprintf("\n\nPlotting Features\n\n");
- %scatter([2:401],x(:,i),'+');
+ scatter([2:401],x(:,i),'+');
  
 
  hold on;
  
 
 end;
-%plot([2:401],y);
+plot([2:401],y);
 
 
 %Predicting Parameters

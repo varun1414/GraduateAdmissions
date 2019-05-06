@@ -17,12 +17,12 @@ for i=1:iterations
 end ;
 
 end;
-	plot(J);
+	%plot(J);
 		JA
 	
 
 
 	%t=[-1:1];
-	%plot(x*theta);
+	plot(x*theta);
 	
 	
