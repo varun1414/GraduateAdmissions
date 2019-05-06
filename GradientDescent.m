@@ -16,6 +16,6 @@ end;
 	
 	
 	t=[-1:1];
-	%plot(x*theta);
-
+	plot(x*theta);
+	
 	
