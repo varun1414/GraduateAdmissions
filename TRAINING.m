@@ -34,9 +34,9 @@ plot([2:401],y);
 
 
 %Predicting Parameters
-iterations=1500;
+%iterations=1500;
 alpha=0.3; theta=[0;0;0;0;0;0;0];
-theta=GradientDescent(alpha,iterations,x,y,theta)
+theta=GradientDescent(alpha,x,y,theta)
 fprintf("\n\nTesting ");
 l=testing(m,s,s1,m1,theta);
 

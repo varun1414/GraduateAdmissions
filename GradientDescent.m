@@ -1,7 +1,7 @@
-function theta=GradientDescent(alpha,iterations,x,y,theta)
+function theta=GradientDescent(alpha,x,y,theta)
 m=size(x,1);
 
-for i=1:iterations 
+while JA>0.1 
 	J(i)=CostFunction(x,y,m,theta);
 	JA=J(i);
 	h=(x(:,1:7)*theta)-y;
@@ -16,6 +16,6 @@ end;
 	
 	
 	t=[-1:1];
-	%plot(x*theta);
-
+	plot(x*theta);
+	
 	
