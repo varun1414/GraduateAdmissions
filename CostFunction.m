@@ -1,6 +1,6 @@
 function J=CostFunction(x,y,m,theta)
 
-h=(x(:,1:8)*theta)-y;
+h=(x(:,1:7)*theta)-y;
 
 %plot(h);
 s=sum(h.^2);

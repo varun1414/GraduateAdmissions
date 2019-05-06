@@ -3,20 +3,18 @@ X=csvread("Admission_Predict.csv");
 
 X=X(2:401,:);
 y=X(:,9);
-
-
 m1=mean(y);
 s1=std(y);
 y=(y-m1)./s1;
 for k=1:7
 	x(:,k)=X(:,k+1);
 	end;
-	x=[ones(400,1),x];
+
 	
 m=mean(x);
 s=std(x);
 
-for i=2:8
+for i=1:7
 xm=m(i);
 xs=s(i);
 
@@ -34,9 +32,10 @@ end;
 
 
 %Predicting Parameters
-iterations=150;
-alpha=0.3333; theta=[0;0;0;0;0;0;0;0];
-theta=GradientDescent(alpha,iterations,x,y,theta)
+
+alpha=0.4; theta=[0;0;0;0;0;0;0];
+iterations=800;
+theta=GradientDescent(alpha,x,iterations,y,theta)
 fprintf("\n\nTesting ");
 l=testing(m,s,s1,m1,theta);
 
