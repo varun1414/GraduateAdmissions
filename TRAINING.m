@@ -16,7 +16,7 @@ for k=1:7
 m=mean(x);
 s=std(x);
 
-for i=1:8
+for i=2:8
 xm=m(i);
 xs=s(i);
 
@@ -34,8 +34,8 @@ end;
 
 
 %Predicting Parameters
-iterations=10;
-alpha=0.3; theta=[0;0;0;0;0;0;0;0];
+iterations=150;
+alpha=0.3333; theta=[0;0;0;0;0;0;0;0];
 theta=GradientDescent(alpha,iterations,x,y,theta)
 fprintf("\n\nTesting ");
 l=testing(m,s,s1,m1,theta);
